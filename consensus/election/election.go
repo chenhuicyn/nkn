@@ -114,15 +114,15 @@ func (election *Election) Stop() {
 
 // HasStarted returns if an election has started.
 func (election *Election) HasStarted() bool {
-	election.RLock()
-	defer election.RUnlock()
+	//election.RLock()
+	//defer election.RUnlock()
 	return election.state != initialized
 }
 
 // IsStopped return if an election is stopped.
 func (election *Election) IsStopped() bool {
-	election.RLock()
-	defer election.RUnlock()
+	//election.RLock()
+	//defer election.RUnlock()
 	return election.state == stopped
 }
 
@@ -227,10 +227,10 @@ func (election *Election) updateVote() {
 			return
 		}
 
-		election.RLock()
+		//election.RLock()
 		leadingVote, absWeight, relWeight := election.getLeadingVote()
 		selfVote := election.selfVote
-		election.RUnlock()
+		//election.RUnlock()
 
 		if absWeight >= election.ChangeVoteMinAbsoluteWeight && relWeight >= election.ChangeVoteMinRelativeWeight {
 			if selfVote != leadingVote {

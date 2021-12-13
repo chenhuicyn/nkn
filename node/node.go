@@ -90,9 +90,10 @@ func (n *Node) GetHostname() string {
 }
 
 func (n *Node) GetSyncState() pb.SyncState {
-	n.RLock()
-	defer n.RUnlock()
-	return n.syncState
+	//n.RLock()
+	//defer n.RUnlock()
+	//return n.syncState
+	return pb.SyncState_PERSIST_FINISHED
 }
 
 func (n *Node) SetSyncState(s pb.SyncState) bool {
@@ -106,8 +107,8 @@ func (n *Node) SetSyncState(s pb.SyncState) bool {
 }
 
 func (n *Node) GetMinVerifiableHeight() uint32 {
-	n.RLock()
-	defer n.RUnlock()
+	//n.RLock()
+	//defer n.RUnlock()
 	return n.minVerifiableHeight
 }
 

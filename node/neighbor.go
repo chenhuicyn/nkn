@@ -150,9 +150,9 @@ func (localNode *LocalNode) connectToRandomNeighbors(rn *randomNeighbors, numRan
 	for {
 		connectTimer := time.After(rn.connectInterval)
 		for {
-			rn.RLock()
+			//rn.RLock()
 			n := len(rn.ids)
-			rn.RUnlock()
+			//rn.RUnlock()
 
 			if n < localNode.computeNumRandomNeighbors(numRandomNeighborsFactor, minNumRandomNeighbors) {
 				break
@@ -219,8 +219,8 @@ func (localNode *LocalNode) startConnectingToRandomNeighbors() {
 }
 
 func (localNode *LocalNode) getRandomNeighbors(rn *randomNeighbors, filter func(*RemoteNode) bool) []*RemoteNode {
-	rn.RLock()
-	defer rn.RUnlock()
+	//rn.RLock()
+	//defer rn.RUnlock()
 
 	neighbors := make([]*RemoteNode, 0, len(rn.ids))
 	for _, id := range rn.ids {
